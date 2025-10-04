@@ -1,21 +1,23 @@
 <?php
-  $array = array('Paulo','Vitor','Thiago','Gustavo','Denilson','Paulo','Vitor');
+  //PREENCHER ARRAY SEM NÚMEROS REPETIDOS
+  $arr = [];
 
-  $arrayRepetido = array();
-
-  for($i = 0; $i < count($array);$i++){
-      $valorAtual = $array[$i];
-      if(!isset($arrayRepetido[$valorAtual])){
-        $arrayRepetido[$valorAtual] = 0; 
-      }else{
-        $arrayRepetido[$valorAtual]++;
-      }
+  for ($i = 0; $i < 7; $i++) { 
+    $arr[$i] = rand(1,7);
+    while(inArrayCustom($i,$arr[$i], $arr)){
+         $arr[$i] = rand(1,7);
+    }
   }
 
-  foreach ($arrayRepetido as $key => $value) {
-    echo $key;
-    echo $value;
-    echo '<hr>';
+  print_r($arr);
+  function inArrayCustom($indice,$valor,$arr){
+    for($i = 0; $i < count($arr); $i++){
+        if($arr[$i] == $valor && $i != $indice){
+          echo 'repetiu!<br>';
+          return true;
+        }
+    }
+      return false;
   }
 
 ?>
