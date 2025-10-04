@@ -1,23 +1,21 @@
 <?php
-  //2 ARRAYS E VAMOS VERIFICAR OS NÚMEROS EM COMUM.
+  $array = array('Paulo','Vitor','Thiago','Gustavo','Denilson','Paulo','Vitor');
 
-  $array_0 = array(0,1,2,3,4,5,6,7,'Paulo','Vitor');
-  $array_1 = array(1,3,5,7,9,11,13,15,'Paulo','Vitor');
+  $arrayRepetido = array();
 
-
-  //RODAR DOIS LOOPING E VERIFICAR SE EXISTE EM UM E NO OUTRO.
-  $em_comum = [];
-  for ($i = 0; $i < count($array_0); $i++){ 
-    for($n = 0; $n < count($array_1); $n++){
-      if($array_0[$i] === $array_1[$n]){
-        //NÚMERO EM COMUM!
-        $em_comum[] = $array_0[$i];
+  for($i = 0; $i < count($array);$i++){
+      $valorAtual = $array[$i];
+      if(!isset($arrayRepetido[$valorAtual])){
+        $arrayRepetido[$valorAtual] = 0; 
+      }else{
+        $arrayRepetido[$valorAtual]++;
       }
-    }
   }
-  foreach ($em_comum as $key => $value) {
+
+  foreach ($arrayRepetido as $key => $value) {
+    echo $key;
     echo $value;
-    echo '<br>';
+    echo '<hr>';
   }
 
 ?>
